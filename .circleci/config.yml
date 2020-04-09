@@ -48,7 +48,11 @@ jobs:
           command: |
             bundle exec rails db:create
             bundle exec rails db:migrate
-
+            
       - run:
-          name: テスト実行 
-          command: bundle exec rake test
+        name: テスト実行 
+        command: bundle exec rake test
+        when: always
+      
+      - store_test_results:
+        path: test/reports
