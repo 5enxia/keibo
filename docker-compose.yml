@@ -2,18 +2,26 @@ version: '3'
 services: 
     db:
         image: postgres:latest
+        ports:
+            - "5432:5432"
         volumes: 
             - ./tmp/db:/var/lib/postgressql/data
+        restart: 
+            always
     app:
         build: .
-        container_name: 'kebo-app'
+        ports: 
+            - "3000:3000"
         command: > 
             sh -c "rm -f /app/tmp/pids/server.pid
             && bundle update
+            && rails db:create
             && rails s -p 3000 -b 0.0.0.0"
+        environment: 
+            - POSTGRES_HOST=db
         volumes: 
             - .:/app
-        ports: 
-            - "3000:3000"
         depends_on: 
             - db
+        restart: 
+            always
