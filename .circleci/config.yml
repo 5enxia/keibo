@@ -1,0 +1,53 @@
+version: 2 
+jobs: 
+  build: 
+    parallelism: 1 
+    docker: 
+      - image: circleci/ruby:2.5.8
+        environment:  
+          RAILS_ENV: test
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          BUNDLER_VERSION: 1.0.0
+          PGHOST: 127.0.0.1
+          PGUSER: circleci-test-user
+      - image: circleci/postgres
+        environment: 
+          POSTGRES_USER: circleci-test-user
+          POSTGRES_DB: circleci-test-db 
+          POSTGRES_PASSWORD: ""
+    steps: 
+      - checkout 
+
+      - run:
+          name: バンドルのバージョンを確認
+          command: bundle -v
+
+      - restore_cache:
+          keys:
+            - gem-cache-{{ checksum "Gemfile.lock" }}
+            - gem-cache-
+
+      - run:
+          name: バンドルインストール
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: gem-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: データベースを待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run:
+          name: データベースをセットアップ 
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
+
+      - run:
+          name: テスト実行 
+          command: bundle exec rake test

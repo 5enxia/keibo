@@ -1,0 +1,18 @@
+version: '3'
+services: 
+    db:
+        image: postgres
+        volumes: 
+            - ./tmp/db:/var/lib/postgressql/data
+    app:
+        build: .
+        container_name: 'kebo-app'
+        command: > 
+            sh -c "rm -f /app/tmp/pids/server.pid
+            && rails s -p 3000 -b 0.0.0.0"
+        volumes: 
+            - .:/app
+        ports: 
+            - "3000:3000"
+        depends_on: 
+            - db
