@@ -9,10 +9,10 @@ services:
         container_name: 'kebo-app'
         command: > 
             sh -c "rm -f /app/tmp/pids/server.pid
+            && bundle update
             && rails s -p 3000 -b 0.0.0.0"
         volumes: 
             - .:/app
-        command: 'bundle update'
         ports: 
             - "3000:3000"
         depends_on: 
