@@ -11,12 +11,8 @@ jobs:
           BUNDLE_PATH: vendor/bundle
           BUNDLER_VERSION: 1.0.0
           PGHOST: 127.0.0.1
-          PGUSER: circleci-test-user
+          PGUSER: postgres
       - image: circleci/postgres
-        environment: 
-          POSTGRES_USER: circleci-test-user
-          POSTGRES_DB: circleci-test-db 
-          POSTGRES_PASSWORD: "password"
     steps: 
       - checkout 
 
