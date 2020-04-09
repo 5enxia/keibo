@@ -3,7 +3,7 @@ jobs:
   build: 
     parallelism: 1 
     docker: 
-      - image: circleci/ruby:2.5.8-stretch-node
+      - image: circleci/ruby:2.5.7-node
         environment:  
           RAILS_ENV: test
           BUNDLE_JOBS: 3
@@ -13,7 +13,7 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: postgres
           PGPASSWORD: ""
-      - image: circleci/postgres:9.5-alpine
+      - image: circleci/postgres:latest
         environment: 
           POSTGRES_USER: postgres
           POSTGRES_DB: db
