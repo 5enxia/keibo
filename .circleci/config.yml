@@ -13,6 +13,9 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: postgres
       - image: circleci/postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: circleci-test-db
+          POSTGRES_PASSWORD: "password"
     steps: 
       - checkout 
 
