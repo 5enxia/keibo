@@ -20,3 +20,6 @@
 
 # local env file
 .env
+
+# test reports
+test/reports/*
