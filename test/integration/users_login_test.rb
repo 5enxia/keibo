@@ -7,6 +7,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
   
 
+
   test "login with invalid information" do
     get login_path
     post login_path, params: { session: { email: "", password: "" }}
@@ -49,4 +50,5 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
   end
+
 end

@@ -12,10 +12,14 @@ gem 'rails', '~> 5.1.7'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Bootstrap
 gem 'bootstrap-sass', '3.3.7'
+# Use Pagination
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use jQuery
 gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -31,6 +35,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -61,3 +66,5 @@ group :test do
 # minitest on circleci
   gem 'minitest-ci'
 end
+
+gem 'faker'
