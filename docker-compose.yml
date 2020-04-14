@@ -4,9 +4,8 @@ services:
         image: postgres:latest
         ports:
             - "5432:5432"
-        environment: 
-            - "POSTGRES_USER=postgres"
-            - "POSTGRES_PASSWORD="
+        env_file: 
+            - db.env
         volumes: 
             - ./tmp/db:/var/lib/postgressql/data
         restart: 
@@ -15,11 +14,8 @@ services:
         build: .
         ports: 
             - "3000:3000"
-        environment: 
-            - "DATABASE_HOST=db"
-            - "DATABASE_PORT=5432"
-            - "DATABASE_USER=postgres"
-            - "DATABASE_PASSWORD="
+        env_file: 
+            - app.env 
         volumes: 
             - .:/app
         command: > 

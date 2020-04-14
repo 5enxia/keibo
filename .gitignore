@@ -20,6 +20,9 @@
 
 # local env file
 .env
+app.env
+db.env
+
 
 # test reports
  test/reports/
