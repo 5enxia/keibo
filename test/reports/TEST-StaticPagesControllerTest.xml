@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite time='0.218347' skipped='0' failures='0' errors='1' name="StaticPagesControllerTest" assertions='0' tests='1' timestamp="2020-04-13T23:55:26+00:00">
-  <testcase time='0.218347' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_root" assertions='0'>
-    <error type='ActiveRecord::RecordNotUnique' message="PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint &quot;index_users_on_email&quot;&#13;&#10;DETAIL:  Key (email)=() already exists.&#13;&#10;: INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;updated_at&quot;, &quot;id&quot;) VALUES (&#39;2020-04-13 23:55:25.909570&#39;, &#39;2020-04-13 23:55:25.909570&#39;, 298486374)">
-    </error>
+<testsuite time='0.598047' skipped='0' failures='0' errors='0' name="StaticPagesControllerTest" assertions='1' tests='1' timestamp="2020-04-14T01:02:49+00:00">
+  <testcase time='0.598047' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_root" assertions='1'>
   </testcase>
 </testsuite>
