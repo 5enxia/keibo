@@ -12,12 +12,12 @@ jobs:
           BUNDLER_VERSION: 1.0.0
           PGHOST: 127.0.0.1
           PGUSER: postgres
-          PGPASSWORD: "password"
+          PGPASSWORD: ""
       - image: circleci/postgres:latest
         environment: 
           POSTGRES_USER: postgres
           POSTGRES_DB: db
-          POSTGRES_PASSWORD: "password"
+          POSTGRES_PASSWORD: ""
     steps: 
       - checkout 
 
