@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.029715' skipped='0' failures='0' errors='0' name="SiteLayoutTest" assertions='4' tests='1' timestamp="2020-04-19T02:04:20+00:00">
+  <testcase time='0.029715' file="test/integration/site_layout_test.rb" name="test_layout_links" assertions='4'>
+  </testcase>
+</testsuite>

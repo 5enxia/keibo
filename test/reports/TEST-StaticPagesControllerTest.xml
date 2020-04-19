@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite time='0.598047' skipped='0' failures='0' errors='0' name="StaticPagesControllerTest" assertions='1' tests='1' timestamp="2020-04-14T01:02:49+00:00">
-  <testcase time='0.598047' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_root" assertions='1'>
+<testsuite time='1.074230' skipped='0' failures='0' errors='0' name="StaticPagesControllerTest" assertions='8' tests='4' timestamp="2020-04-19T02:04:20+00:00">
+  <testcase time='0.950463' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_about" assertions='2'>
+  </testcase>
+  <testcase time='0.046366' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_contact" assertions='2'>
+  </testcase>
+  <testcase time='0.034710' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_help" assertions='2'>
+  </testcase>
+  <testcase time='0.042691' file="test/controllers/static_pages_controller_test.rb" name="test_should_get_root" assertions='2'>
   </testcase>
 </testsuite>
