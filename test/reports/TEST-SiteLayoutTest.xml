@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite time='0.100241' skipped='0' failures='0' errors='0' name="SiteLayoutTest" assertions='10' tests='2' timestamp="2020-04-20T19:45:09+00:00">
-  <testcase time='0.082792' file="test/integration/site_layout_test.rb" name="test_layout_links_with_login_user" assertions='6'>
-  </testcase>
-  <testcase time='0.017450' file="test/integration/site_layout_test.rb" name="test_layout_links_with_non_login_user" assertions='4'>
-  </testcase>
-</testsuite>

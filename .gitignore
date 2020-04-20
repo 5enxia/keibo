@@ -25,4 +25,4 @@ db.env
 
 
 # test reports
- test/reports/
+ /test/reports/*
