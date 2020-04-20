@@ -3,11 +3,10 @@
         <%= link_to "keibo", root_path, id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   root_path %></li>
-            <li><%= link_to "Help",   help_path%></li>
-            <li><%= link_to "About",  about_path%></li>
             <% if user_signed_in? %>
-                <li><%= link_to current_user.email, '#' %></li>
+                <li><%= link_to "ダッシュボード",   root_path %></li>
+                <li><%= link_to '収支一覧', payments_path %></li>
+                <li><%= link_to 'ユーザページ', user_show_path %></li>
                 <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
                 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>

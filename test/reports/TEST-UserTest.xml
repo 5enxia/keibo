@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.088707' skipped='0' failures='0' errors='0' name="UserTest" assertions='1' tests='1' timestamp="2020-04-20T19:45:09+00:00">
+  <testcase time='0.088707' file="test/models/user_test.rb" name="test_associated_payments_should_be_destroyed" assertions='1'>
+  </testcase>
+</testsuite>

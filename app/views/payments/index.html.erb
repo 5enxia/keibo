@@ -1,0 +1,10 @@
+<div class="col-md-8">
+    <% if @user.payments.any? %>
+      <h3>payments (<%= @user.payments.count %>)</h3>
+      <ol class="microposts">
+        <%= render @payments %>
+      </ol>
+      <%= will_paginate @payments %>
+    <% end %>
+  </div>
+</div>

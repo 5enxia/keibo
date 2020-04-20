@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='1.644568' skipped='0' failures='0' errors='0' name="PaymentsControllerTest" assertions='4' tests='2' timestamp="2020-04-20T19:45:09+00:00">
+  <testcase time='1.620387' file="test/controllers/payments_controller_test.rb" name="test_should_redirect_create_when_not_logged_in" assertions='2'>
+  </testcase>
+  <testcase time='0.024181' file="test/controllers/payments_controller_test.rb" name="test_should_redirect_destroy_when_not_logged_in" assertions='2'>
+  </testcase>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.519751' skipped='0' failures='0' errors='0' name="UsersControllerTest" assertions='1' tests='2' timestamp="2020-04-20T19:45:09+00:00">
+  <testcase time='0.019639' file="test/controllers/users_controller_test.rb" name="test_should_redirect_login_when_not_logged_in" assertions='1'>
+  </testcase>
+  <testcase time='0.500112' file="test/controllers/users_controller_test.rb" name="test_should_success_sign_up" assertions='0'>
+  </testcase>
+</testsuite>

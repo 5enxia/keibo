@@ -1,8 +1,20 @@
 <% if user_signed_in? %>
-   <h1>ダッシュボード</h1> 
+<div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/payment_form' %>
+      </section>
+    </aside>
+  </div>
+  
     <% else %>
-<div class="center jumbotron">
-  <h1>家計簿アプリkeiboへようこそ！</h1>
-  <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-</div>
+      <div class="center jumbotron">
+        <h1>家計簿アプリkeiboへようこそ！</h1>
+        <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to "サインイン", new_user_session_path, class: "btn btn-lg btn-primary" %>
+        <%= link_to "Google OAuth Login", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-primary" %>
+      </div>
 <% end %>

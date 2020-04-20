@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time='0.089475' skipped='0' failures='0' errors='0' name="PaymentTest" assertions='7' tests='7' timestamp="2020-04-20T19:45:09+00:00">
+  <testcase time='0.009148' file="test/models/payment_test.rb" name="test_content_should_be_present" assertions='1'>
+  </testcase>
+  <testcase time='0.019129' file="test/models/payment_test.rb" name="test_user_id_should_be_present" assertions='1'>
+  </testcase>
+  <testcase time='0.014227' file="test/models/payment_test.rb" name="test_order_should_be_most_recent_first" assertions='1'>
+  </testcase>
+  <testcase time='0.007972' file="test/models/payment_test.rb" name="test_should_be_valid" assertions='1'>
+  </testcase>
+  <testcase time='0.011632' file="test/models/payment_test.rb" name="test_content_should_be_at_most_140_characters" assertions='1'>
+  </testcase>
+  <testcase time='0.008334' file="test/models/payment_test.rb" name="test_price_should_be_present" assertions='1'>
+  </testcase>
+  <testcase time='0.019033' file="test/models/payment_test.rb" name="test_price_should_be_numerical" assertions='1'>
+  </testcase>
+</testsuite>

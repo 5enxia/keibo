@@ -39,6 +39,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  # faker
+  gem 'faker'
 end
 
 group :development do
@@ -69,7 +71,12 @@ gem 'bootstrap-sass'
 # Use devise
 gem 'devise'
 gem 'devise-i18n' # translate
+gem 'rails-i18n'
 
 # Use oauth
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
+
+# ページネーション
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
