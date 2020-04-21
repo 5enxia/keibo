@@ -12,6 +12,7 @@ User.create!(
     email: "hoge@hoge.com",
     password: "password",
     confirmed_at: Time.now
+    admin: true
 )
 
 49.times do |n|
