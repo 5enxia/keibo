@@ -6,8 +6,10 @@
             <% if user_signed_in? %>
                 <li><%= link_to "ダッシュボード",   root_path %></li>
                 <li><%= link_to '収支一覧', payments_path %></li>
+                <%if current_user.admin? %>
+                  <li><%= link_to 'カテゴリ編集', categories_path %></li>
+                <% end %>
                 <li><%= link_to 'ユーザページ', user_show_path %></li>
-                <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
                 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
                 <li><%= link_to 'サインアップ', new_user_registration_path %></li>

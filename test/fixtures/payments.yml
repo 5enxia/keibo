@@ -1,28 +1,33 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+
 orange:
   price: 100
   content: "交通費"
   created_at: <%= 10.minutes.ago %>
   user: confirmed_user
+  category: food
 
 tau_manifesto:
   price: 300
   content: "昼食"
   created_at: <%= 3.years.ago %>
   user: confirmed_user
+  category: food
 
 cat_video:
   price: 1000
   content: "映画"
   created_at: <%= 2.hours.ago %>
   user: confirmed_user
+  category: food
 
 most_recent:
   price: 10000 
   content: "衣服"
   created_at: <%= Time.zone.now %>
   user: confirmed_user
+  category: food
 
 <% 30.times do |n| %>
 payment_<%= n %>:
@@ -30,4 +35,5 @@ payment_<%= n %>:
   content: <%= Faker::Lorem.sentence(word_count: 5) %>
   created_at: <%= 42.days.ago %>
   user: confirmed_user
+  category: food
 <% end %>

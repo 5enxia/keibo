@@ -27,11 +27,23 @@ User.create!(
   )
 end
 
+# Category
+10.times do |n|
+  name = Faker::Games::Pokemon.name
+  Category.create!(
+    name: name 
+  )
+end
+
 # Payments
-# users = User.order(:created_at).take(6)
 user = User.first
 50.times do
-  content = Faker::Lorem.sentence(5)
+  content = Faker::Games::Pokemon.location
   price = Faker::Number.number(digits: 5)
-  user.payments.create!(content: content, price: price)
+  category_id = rand(1..9)
+  user.payments.create!(
+    content: content, 
+    price: price, 
+    category_id: category_id
+  )
 end

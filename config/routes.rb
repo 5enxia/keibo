@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'user/show' => 'users#show'
   
   resources :payments
+  resources :categories
 
   root 'static_pages#home'
   get "/help" => 'static_pages#help'

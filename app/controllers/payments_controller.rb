@@ -6,8 +6,11 @@ class PaymentsController < ApplicationController
         @payments = current_user.payments.paginate(page: params[:page])
     end
 
+
     def create
+        @categories = Category.all.map{|c| [c.name, c.id]}
         @payment = current_user.payments.build(payment_params)
+
         if @payment.save
             flash[:success] = "収支が追加されました"
             redirect_to request.referrer || payments_url
@@ -18,6 +21,7 @@ class PaymentsController < ApplicationController
 
     def edit
         @payment = current_user.payments.find(params[:id])
+        @categories = Category.all.map{|c| [c.name, c.id]}
     end
 
     def update
@@ -39,6 +43,6 @@ class PaymentsController < ApplicationController
 
     private
         def payment_params
-            params.require(:payment).permit(:content, :price)
+            params.require(:payment).permit(:content, :price, :category_id)
         end
 end

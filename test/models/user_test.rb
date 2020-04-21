@@ -7,12 +7,16 @@ class UserTest < ActiveSupport::TestCase
       email: "user@example.com",
       password: "foobar"
     )
+    @category = Category.new(name: 'food')
+    @payments = Payment.new(
+    ) 
   end
 
   test "associated payments should be destroyed" do
     @user.skip_confirmation!
     @user.save
-    @user.payments.create!(price: 100, content: "Salad")
+    @user.payments.create!(price: 100, content: 'hoge',
+      user: @user, category: @category)
     assert_difference 'Payment.count', -1 do
       @user.destroy
     end

@@ -3,7 +3,7 @@ require 'test_helper'
 class PaymentTest < ActiveSupport::TestCase
   def setup
     @user = users(:confirmed_user)
-    @payment = @user.payments.build(price: 150, content:"hoge")
+    @payment = payments(:orange)
   end
 
   test "should be valid" do
@@ -32,6 +32,16 @@ class PaymentTest < ActiveSupport::TestCase
 
   test "content should be at most 140 characters" do
     @payment.content = "a" * 141
+    assert_not @payment.valid?
+  end
+
+  test "category id should be present" do
+    @payment.category_id = nil
+    assert_not @payment.valid?
+  end
+
+  test "category id should be numerical" do
+    @payment.category_id = "  " 
     assert_not @payment.valid?
   end
 

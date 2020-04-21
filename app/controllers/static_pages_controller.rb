@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
-    if user_signed_in?
-      @payment = current_user.payments.build
-    end
+    @payment = Payment.new
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def help

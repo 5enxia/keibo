@@ -77,6 +77,6 @@ gem 'rails-i18n'
 gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 
-# ページネーション
+# Use pagination 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'

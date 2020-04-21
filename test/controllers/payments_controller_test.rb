@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class PaymentsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
   def setup
     @payment = payments(:orange)

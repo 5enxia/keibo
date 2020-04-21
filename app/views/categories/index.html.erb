@@ -1,0 +1,19 @@
+<div class="row">
+    <aside class="col-md-4">
+      <section class="micropost_form">
+        <%= render 'shared/category_form' %>
+      </section>
+    </aside>
+  </div>
+
+
+<div class="col-md-8">
+    <% if @categories.any? %>
+      <h3>categories(<%= @categories.count %>)</h3>
+      <ol class="microposts">
+        <%= render partial: 'category', collection: @categories%>
+      </ol>
+      <%= will_paginate @categories%>
+    <% end %>
+  </div>
+</div>
