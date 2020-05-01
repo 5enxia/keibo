@@ -79,3 +79,6 @@ gem 'dotenv-rails'
 # Use pagination 
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+# Use Calendar
+gem 'simple_calendar'

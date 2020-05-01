@@ -40,13 +40,15 @@ end
 
 # Payments
 user = User.first
-50.times do
+50.times do |n|
   content = Faker::Games::Pokemon.location
   price = Faker::Number.number(digits: 5)
   category_id = rand(1..9)
+  date = Time.now - n.hour
   user.payments.create!(
     content: content, 
     price: price, 
-    category_id: category_id
+    category_id: category_id,
+    date: date
   )
 end

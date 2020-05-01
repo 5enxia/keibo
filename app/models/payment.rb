@@ -2,7 +2,7 @@ class Payment < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
-  default_scope -> { order(created_at: :desc)}
+  default_scope -> { order(date: :desc)}
   validates :user_id, presence: true
 
   validates :price, presence:true, numericality: true

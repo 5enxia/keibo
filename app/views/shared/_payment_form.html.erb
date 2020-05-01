@@ -9,5 +9,8 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "収支の概要" %>
   </div>
+  <div class="field">
+    <%= f.date_select :date  %>
+  </div>
   <%= f.submit "追加", class: "btn btn-primary" %>
 <% end %>

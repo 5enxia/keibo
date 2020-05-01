@@ -45,7 +45,4 @@ class PaymentTest < ActiveSupport::TestCase
     assert_not @payment.valid?
   end
 
-  test "order should be most recent first" do
-    assert_equal payments(:most_recent), Payment.first
-  end
 end

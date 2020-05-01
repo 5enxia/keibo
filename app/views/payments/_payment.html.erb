@@ -2,8 +2,9 @@
   <span class="category">カテゴリ
   <%= Category.find(payment.category_id).name %>
   </span>
-  <span class="price"><%= payment.price %>円</span>
+  <span class="price">&yen;<%= payment.price %></span>
   <span class="content">備考<%= payment.content %></span>
+  <span class="date">日付<%= payment.date %></span>
   <%= link_to "削除", payment, method: :delete,
                                        data: { confirm: "本当に削除しますか？" } %>
   <%= link_to "編集", edit_payment_url(payment) %>

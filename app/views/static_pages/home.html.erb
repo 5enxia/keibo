@@ -1,18 +1,41 @@
 <% if user_signed_in? %>
+<h1>ダッシュボード</h1>
+    <h2>収支登録</h2>
 <div class="row">
     <aside class="col-md-4">
       <section class="micropost_form">
         <%= render 'shared/payment_form' %>
       </section>
     </aside>
+
+    <h2>カレンダー</h2>
+    <%= month_calendar do |date| %>
+      <%= link_to  date.day, root_path(date: date)%>
+      <p>&yen;<%= @payments.where(date: date).sum(:price) %></p>
+    <% end %>
+
+    <h2><%= params[:date] %>日集計</h2>
+    <% @payments.where(date: params[:date]).each do |payment| %>
+      <%= render 'payments/payment', payment: payment %> 
+    <% end %>
+    <h2><%= Time.now.month %>月集計</h2>
+    <p>&yen;<%= @payments.where(date: Time.now..(Time.now + 1.month)).sum(:price) %></p>
+    <h2><%= Time.now.year %>年集計</h2>
+    <p>&yen;<%= @payments.where(date: Time.now..(Time.now + 12.month)).sum(:price) %></p>
+
+    <% if @payments %>
     <h2>収支総計</h2>
-    <p><%=@payments.sum(:price)%>円</p>
-    <h2>カテゴリ別収支</h2>
+    <p>&yen;<%=@payments.sum(:price)%></p>
+    <h2>カテゴリ別総計</h2>
+      <li>カテゴリ：総計</li>
     <ul>
     <% @categories.each do |category| %>
-    <li><%=category[0]%>:<%=@payments.where(category_id: category[1]).sum(:price) %>円</li>
+      <li><%=category[0]%>:&yen;<%=@payments.where(category_id: category[1]).sum(:price) %></li>
     <% end %>
     <ul>
+    <% end %>
+
+
   </div>
   
     <% else %>
