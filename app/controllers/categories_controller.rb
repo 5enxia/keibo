@@ -23,7 +23,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    # カテゴリを削除したとき，対象カテゴリのpaymentのcatetory_idを1に設定
+    # デフォルトカテゴリを設定
+    if Category.find_by(id:1).nil?
+      Category.create(id:1, name:'デフォルト')
+    end
+    # カテゴリを削除したとき，対象をデフォルトカテゴリに設定
     @category_params = Payment.where(category_id: params[:id]).update_all(category_id: 1)
     @category = Category.find(params[:id])
     @category.destroy
