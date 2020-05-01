@@ -5,6 +5,14 @@
         <%= render 'shared/payment_form' %>
       </section>
     </aside>
+    <h2>収支総計</h2>
+    <p><%=@payments.sum(:price)%>円</p>
+    <h2>カテゴリ別収支</h2>
+    <ul>
+    <% @categories.each do |category| %>
+    <li><%=category[0]%>:<%=@payments.where(category_id: category[1]).sum(:price) %>円</li>
+    <% end %>
+    <ul>
   </div>
   
     <% else %>

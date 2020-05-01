@@ -57,6 +57,7 @@ group :test do
   gem 'guard'                    
   gem 'guard-minitest'           
 
+  gem 'faker'
   gem 'minitest-ci'
 end
 
