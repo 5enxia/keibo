@@ -60,14 +60,13 @@
      font-size: 3em;
      letter-spacing: -2px;
      margin-bottom: 30px;
-     text-align: center;
+     text-align: left;
    }
    
    h2 {
-     font-size: 1.2em;
      letter-spacing: -1px;
      margin-bottom: 30px;
-     text-align: center;
+     text-align: left;
      font-weight: normal;
      color: $gray-light;
    }
@@ -85,13 +84,14 @@
      float: left;
      margin-right: 10px;
      font-size: 1.7em;
-     color: #fff;
-     text-transform: uppercase;
+     color: #1abc9c;
+    //  text-transform: uppercase;
      letter-spacing: -1px;
-     padding-top: 9px;
+      padding-top: 9px;
+      padding-bottom: 9px;
      font-weight: bold;
      &:hover{
-         color: #fff;
+         color: #16a085;
          text-decoration: none;
      }
    }
@@ -174,7 +174,7 @@
    margin-top: 15px;
  }
  
- stats {
+ .stats {
    overflow: auto;
    margin-top: 0;
    padding: 0;
@@ -216,12 +216,12 @@
  
  /* forms */
  
- input, textarea, select, .uneditable-input {
-   border: 1px solid #bbb;
-   width: 100%;
-   margin-bottom: 15px;
-   @include box_sizing;
- }
+//  input, textarea, select, .uneditable-input {
+//    border: 1px solid #bbb;
+//    width: 100%;
+//    margin-bottom: 15px;
+//    @include box_sizing;
+//  }
  
  input {
    height: auto !important;
@@ -267,49 +267,6 @@
    }
  }
  
- /* microposts */
- 
- .microposts {
-   list-style: none;
-   padding: 0;
-   li {
-     padding: 10px 0;
-     border-top: 1px solid #e8e8e8;
-   }
-   .user {
-     margin-top: 5em;
-     padding-top: 0;
-   }
-   .content {
-     display: block;
-     margin-left: 60px;
-     img {
-       display: block;
-       padding: 5px 0;
-     }
-   }
-   .price{
-     display: block;
-     margin-left: 60px;
-   }
-   .timestamp {
-     color: $gray-light;
-     display: block;
-     margin-left: 60px;
-   }
-   .gravatar {
-     float: left;
-     margin-right: 10px;
-     margin-top: 5px;
-   }
- }
- 
- aside {
-   textarea {
-     height: 100px;
-     margin-bottom: 5px;
-   }
- }
  
  span.picture {
    margin-top: 10px;

@@ -1,8 +1,5 @@
-<li id="category-<%= category.id %>">
-  <span class="category">カテゴリ
-  <%= category.name %>
-  </span>
-  <%= link_to "削除", category, method: :delete,
-                                       data: { confirm: "本当に削除しますか？" } %>
-  <%= link_to "編集", edit_category_url(category) %>
-</li>
+<tr id="category-<%= category.id %>">
+  <td><%= category.name %></td>
+  <td><%= link_to("削除", category, { method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger"})%></td>
+  <td><%= link_to("編集", edit_category_url(category), {class: "btn btn-primary"})%></td>
+</tr>

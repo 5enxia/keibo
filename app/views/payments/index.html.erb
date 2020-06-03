@@ -1,10 +1,20 @@
-<div class="col-md-8">
-    <% if @user.payments.any? %>
-      <h3>payments (<%= @user.payments.count %>)</h3>
-      <ol class="microposts">
-        <%= render @payments %>
-      </ol>
-      <%= will_paginate @payments %>
-    <% end %>
-  </div>
+<% if @user.payments.any? %>
+<h3>収支一覧 (<%= @user.payments.count %>)</h3>
+<div class="row">
+  <table class='table'>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">カテゴリ</th>
+        <th scope="col">収支</th>
+        <th scope="col">メモ</th>
+        <th scope="col">日時</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody><%= render @payments %></tbody>
+  </table>
+  <%= will_paginate @payments %>
+<% end %>
 </div>

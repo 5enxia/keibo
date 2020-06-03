@@ -1,8 +1,8 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top bg-light">
       <div class="container">
         <%= link_to "keibo", root_path, id: "logo" %>
         <nav>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav">
             <% if user_signed_in? %>
                 <li><%= link_to "ダッシュボード",   root_path %></li>
                 <li><%= link_to '収支一覧', payments_path %></li>

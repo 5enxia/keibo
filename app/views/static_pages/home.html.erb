@@ -1,48 +1,74 @@
 <% if user_signed_in? %>
-<h1>ダッシュボード</h1>
-    <h2>収支登録</h2>
+<h1>DashBoard</h1>
 <div class="row">
-    <aside class="col-md-4">
-      <section class="micropost_form">
-        <%= render 'shared/payment_form' %>
-      </section>
-    </aside>
+    <h2>収支登録</h2>
+    <%= render 'shared/payment_form' %>
+</div>
 
+<div class="row">
     <h2>カレンダー</h2>
     <%= month_calendar do |date| %>
       <%= link_to  date.day, root_path(date: date)%>
       <p>&yen;<%= @payments.where(date: date).sum(:price) %></p>
     <% end %>
+</div>
 
-    <h2><%= params[:date] %>日集計</h2>
-    <% @payments.where(date: params[:date]).each do |payment| %>
-      <%= render 'payments/payment', payment: payment %> 
-    <% end %>
-    <h2><%= Time.now.month %>月集計</h2>
-    <p>&yen;<%= @payments.where(date: Time.now..(Time.now + 1.month)).sum(:price) %></p>
-    <h2><%= Time.now.year %>年集計</h2>
-    <p>&yen;<%= @payments.where(date: Time.now..(Time.now + 12.month)).sum(:price) %></p>
+<div class="row">
+  <% if params[:date] %>
+    <h2><%= params[:date] %>の支払い・収入一覧</h2>
+    <table class='table'>
+      <thead>
+        <tr><th scope="col">カテゴリ</th><th scope="col">収支</th></tr>
+      </thead>
+      <tbody>
+      <% @payments.where(date: params[:date]).each do |payment| %>
+        <%= render 'payments/payment', payment: payment %> 
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
 
-    <% if @payments %>
-    <h2>収支総計</h2>
-    <p>&yen;<%=@payments.sum(:price)%></p>
+<div class="row">
+    <h2>期間別集計</h2>
+        <table class='table'>
+        <thead><tr><th scope="col">期間</th><th scope="col">集計</th></tr></thead>
+    <tbody>
+      <tr><td><%= Time.now.month %>月</td><td>&yen;<%= @payments.where(date: Time.now..(Time.now + 1.month)).sum(:price) %></td></tr>
+      <tr><td><%= Time.now.year %>年</td><td>&yen;<%= @payments.where(date: Time.now..(Time.now + 12.month)).sum(:price) %></td></tr>
+      <tr><td>総期間</td><td>&yen;<%=@payments.sum(:price)%></td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="row">
     <h2>カテゴリ別総計</h2>
-      <li>カテゴリ：総計</li>
-    <ul>
+    <table class='table'>
+    <thead>
+      <tr><th scope="col">カテゴリ</th><th scope="col">収支</th></tr>
+    </thead>
+    <tbody>
     <% @categories.each do |category| %>
-      <li><%=category[0]%>:&yen;<%=@payments.where(category_id: category[1]).sum(:price) %></li>
+      <tr>
+      <td><%=category[0]%></td>
+      <td>&yen;<%=@payments.where(category_id: category[1]).sum(:price) %></td>
+      </tr>
     <% end %>
-    <ul>
-    <% end %>
-
-
-  </div>
+    </tbody>
+  </table>
+</div>
   
-    <% else %>
-      <div class="center jumbotron">
-        <h1>家計簿アプリkeiboへようこそ！</h1>
-        <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "サインイン", new_user_session_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "Google OAuth Login", user_google_oauth2_omniauth_authorize_path, class: "btn btn-lg btn-primary" %>
+<% else %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">keibo</h1>
+    <p class="lead">家計簿管理に特化した会計アプリ</p>
+    <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-info" %>
+    <%= link_to "サインイン", new_user_session_path, class: "btn btn-lg btn-info" %>
+    <%= link_to image_tag("https://cloud-cube.s3.amazonaws.com/d6x6mxfmpxeq/public/btn_google_signin_light_normal_web.png"), 
+    user_google_oauth2_omniauth_authorize_path %>
+  </div>
+</div>
       </div>
 <% end %>

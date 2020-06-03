@@ -1,16 +1,25 @@
 <%= form_for(@payment) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.select :category_id, @categories %> 
+
+  <div class="form-group">
+    <%= label(:title, "カテゴリ")%>
+    <%= f.select :category_id, @categories, {}, {class:"form-control"}%> 
   </div>
-  <div class="field">
-    <%= f.number_field :price, placeholder: "金額"%>
+
+  <div class="form-group">
+    <%= label(:title, "収支")%>
+    <%= f.number_field :price , class:"form-control"%>
   </div>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "収支の概要" %>
+
+  <div class="form-group">
+    <%= label(:title, "概要")%>
+    <%= f.text_area :content, rows:"5", class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.date_select :date  %>
+
+  <div class="form-group">
+    <%= label(:title, "日時")%>
+    <%= f.date_select :date,{},{class: "form-control col"}%>
   </div>
+
   <%= f.submit "追加", class: "btn btn-primary" %>
 <% end %>

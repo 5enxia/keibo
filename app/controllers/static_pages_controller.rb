@@ -4,7 +4,6 @@ class StaticPagesController < ApplicationController
     # form
     @payment = Payment.new
     @categories = Category.all.map{|c| [ c.name, c.id ] }
-  
 
     if user_signed_in?
       # 集計

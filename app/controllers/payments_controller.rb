@@ -10,6 +10,7 @@ class PaymentsController < ApplicationController
     def create
         @categories = Category.all.map{|c| [c.name, c.id]}
         @payment = current_user.payments.build(payment_params)
+        @payments = current_user.payments.paginate(page: params[:page])
 
         if @payment.save
             flash[:success] = "収支が追加されました"
