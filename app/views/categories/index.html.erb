@@ -1,7 +1,7 @@
+<h1>カテゴリー一覧</h1>
 <div class="row">
   <%= render 'shared/category_form' %>
 </div>
-
 
 <div class="row">
     <% if @categories.any? %>
@@ -15,6 +15,8 @@
       </tbody>
     </table>
       <%= will_paginate @categories%>
+    <%else%>
+      <h2>カテゴリーがまだありません</h2>
     <% end %>
   </div>
 </div>

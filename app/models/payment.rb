@@ -6,6 +6,6 @@ class Payment < ApplicationRecord
   validates :user_id, presence: true
 
   validates :price, presence:true, numericality: true
-  validates :content, length: { maximum: 140 }, presence: true
+  validates :content, length: { maximum: 140 }
 
 end

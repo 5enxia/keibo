@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'user/show' => 'users#show'
+  get 'users/show' => 'users#show'
   
   resources :payments
   resources :categories
