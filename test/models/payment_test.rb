@@ -25,9 +25,9 @@ class PaymentTest < ActiveSupport::TestCase
     assert_not @payment.valid?
   end
 
-  test "content should be present" do
+  test "content have not to be present" do
     @payment.content = "   "
-    assert_not @payment.valid?
+    assert @payment.valid?
   end
 
   test "content should be at most 140 characters" do

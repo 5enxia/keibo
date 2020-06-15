@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :payments
   resources :categories
+  resources :groups
 
   root 'static_pages#home'
   get "/help" => 'static_pages#help'

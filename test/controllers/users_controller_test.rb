@@ -15,7 +15,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect login when not logged in" do
-    get user_show_url
+    get users_show_url
     assert_redirected_to new_user_session_url
   end
 

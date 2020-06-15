@@ -5,6 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
       :recoverable, :rememberable, :trackable, :validatable,
       :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:google_oauth2]
+
+  has_many :user_groups
+  has_many :groups, through: :user_groups
   
   # omniauthのコールバック時に呼ばれるメソッド
   def self.from_omniauth(auth)

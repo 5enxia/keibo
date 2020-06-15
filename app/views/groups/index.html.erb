@@ -1,0 +1,7 @@
+<h1>所属グループ一覧</h1>
+<% if @groups.any? %>
+    <% @groups.each do |g|%>
+    <%= g.name %>
+    <% end %>
+<% else %>
+<% end %>
