@@ -5,6 +5,7 @@ class StaticPagesTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:confirmed_user)
+    @payments << payments(:orange)
   end
 
 end

@@ -1,5 +1,4 @@
  <tr id="payment-<%= payment.id%>">
-    <td><%= payment.id %></td>
     <td><%= Category.find(payment.category_id).name %></td>
     <td>&yen;<%= payment.price %></td>
     <td><%= payment.content %></td>

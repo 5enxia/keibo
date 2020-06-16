@@ -18,7 +18,12 @@
     <h2><%= params[:date] %>の支払い・収入一覧</h2>
     <table class='table'>
       <thead>
-        <tr><th scope="col">カテゴリ</th><th scope="col">収支</th></tr>
+        <tr>
+        <th scope="col">カテゴリ</th>
+        <th scope="col">収支</th>
+        <th scope="col">メモ</th>
+        <th scope="col">日付</th>
+        </tr>
       </thead>
       <tbody>
       <% @payments.where(date: params[:date]).each do |payment| %>
@@ -34,8 +39,8 @@
         <table class='table'>
         <thead><tr><th scope="col">期間</th><th scope="col">集計</th></tr></thead>
     <tbody>
-      <tr><td><%= Time.now.month %>月</td><td>&yen;<%= @payments.where(date: Time.now..(Time.now + 1.month)).sum(:price) %></td></tr>
-      <tr><td><%= Time.now.year %>年</td><td>&yen;<%= @payments.where(date: Time.now..(Time.now + 12.month)).sum(:price) %></td></tr>
+      <tr><td><%= Time.now.month %>月</td><td>&yen;<%= @payments.where(date: Time.now.all_month).sum(:price) %></td></tr>
+      <tr><td><%= Time.now.year %>年</td><td>&yen;<%= @payments.where(date: Time.now.all_year).sum(:price) %></td></tr>
       <tr><td>総期間</td><td>&yen;<%=@payments.sum(:price)%></td></tr>
     </tbody>
   </table>
